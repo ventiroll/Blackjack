@@ -1,0 +1,1 @@
+// adds or clears the cards to the hand and also calculates the total value of the hand

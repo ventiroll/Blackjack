@@ -1,0 +1,1 @@
+// inherit the class GenericPlayer and displays the status (Hitting, win, lose etc) of the house 

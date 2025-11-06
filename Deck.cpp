@@ -1,0 +1,1 @@
+// inherits the Hand Class and takes care of shuffling, populating and dealing the cards
