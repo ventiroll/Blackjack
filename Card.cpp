@@ -34,9 +34,15 @@ std::string Card::getRank() const {
 }
 
 int Card::getValue() const {
-    if (rank == ACE)
-        return 11;  // Default Ace value (can be adjusted in Blackjack logic)
-    return static_cast<int>(rank);
+    switch (rank) {
+        case ACE:   return 11;
+        case JACK:
+        case QUEEN:
+        case KING:
+            return 10;
+        default:
+            return static_cast<int>(rank);
+    }
 }
 
 std::vector<Card> Card::createDeck() {

@@ -3,25 +3,17 @@
 
 #include "GenericPlayer.h"
 
-class Player: public GenericPlayer {
-    public:
-    // constructor 
-    Player(const std::string& name = "");
+class Player : public GenericPlayer {
+public:
+    Player(const std::string& name);
 
-    // destructor
-    virtual ~Player();
+    // Ask user if they want to hit
+    virtual bool isHitting() const override;
 
-    // asks if player wants to hit
-    virtual bool isHitting() const;
-
-    // display win
+    // These print outcome messages
     void win() const;
-
-    // display loss
     void lose() const;
-
-    // display tie
     void push() const;
 };
 
-#endif
+#endif // PLAYER_H

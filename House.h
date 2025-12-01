@@ -3,19 +3,15 @@
 
 #include "GenericPlayer.h"
 
-class House: public GenericPlayer {
-    public:
-    // constructor
-    House(const std::string& name = "Dealer");
+class House : public GenericPlayer {
+public:
+    House();
 
-    // destructor
-    virtual ~House();
+    // Dealer hits while total <= 16
+    virtual bool isHitting() const override;
 
-    // decides if dealer should hit
-    virtual bool isHitting() const;
-
-    // flips dealer first card
-    void flipFirstCard() const;
+    // Turn over first card, if you implement face-down cards later
+    void flipFirstCard();
 };
 
-#endif
+#endif // HOUSE_H
