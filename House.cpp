@@ -20,8 +20,10 @@ bool House::isHitting() const {
 
 // Flip the first card in the hand (if any exist)
 void House::flipFirstCard() {
-    if (!getCards().empty()) {
-        getCards()[0]->flip();   // Flip first card
+    const std::vector<Card*>& cards = getCards();
+
+    if (!cards.empty()) {
+       cards[0]->flip();   // Flip first card
     }
     else {
         std::cout << "No cards to flip for the House." << std::endl;
