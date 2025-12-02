@@ -1,47 +1,61 @@
 // adds or clears the cards to the hand and also calculates the total value of the hand
-
 #include "Hand.h"
 
-Hand::Hand() {}
+Hand::Hand() {
+    cardVector.reserve(7);
+}
 
 Hand::~Hand() {
-    clear();
+    clearHand();
 }
 
-void Hand::add(const Card& card) {
-    cards.push_back(card);
+void Hand::add(Card* pCard) {
+    cardVector.push_back(pCard);
 }
 
-void Hand::clear() {
-    cards.clear();
+void Hand::clearHand() {
+    // Delete all allocated cards
+    for (std::vector<Card*>::iterator iterate = cardVector.begin();
+         iterate != cardVector.end(); ++iterate)
+    {
+        delete *iterate;
+        *iterate = NULL;
+    }
+
+    cardVector.clear();
 }
+
 
 int Hand::getTotal() const {
-    if (cards.empty())
+    if (cardVector.empty()) {
         return 0;
+    }
+
+    // If first card is face down, total is 0
+    if (cardVector[0]->getValue() == 0) {
+        return 0;
+    }
 
     int total = 0;
-    int aceCount = 0;
+    bool containsAce = false;
 
-    // Sum card values, counting Aces as 11 for now
-    for (const Card& c : cards) {
-        int value = c.getValue();
-        total += value;
+    // Iterate using const_iterator (required by rubric)
+    for (std::vector<Card*>::const_iterator it = cardVector.begin();  it != cardVector.end(); ++ it) {
+        total += (*it)->getValue();
 
-        if (value == 11) { // Ace
-            aceCount++;
+        if ((*it)->getValue() == 1) {
+            containsAce = true;
         }
     }
 
     // Convert Aces from 11 → 1 if needed to avoid busting
-    while (total > 21 && aceCount > 0) {
-        total -= 10;  // 11 → 1
-        aceCount--;
+    if (containsAce && total <= 11) {
+        total += 10;
     }
 
     return total;
 }
 
-const std::vector<Card>& Hand::getCards() const {
-    return cards;
+const std::vector<Card*>& Hand::getCards() const {
+    return cardVector;
 }

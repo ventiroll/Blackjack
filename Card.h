@@ -3,25 +3,33 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 
 class Card {
 public:
-    enum Suit { HEARTS, DIAMONDS, CLUBS, SPADES };
-    enum Rank { TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE};
+    // suit enumerator
+    enum SUIT { CLUBS, DIAMONDS, HEARTS, SPADES };
 
-    Card(Suit s, Rank r);
+    // rank enumerator (RANK are ACE = 1, TWO, ..... , QUEEN, KING.)
+    enum RANK { ACE = 1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING};
+
+    // constructor 
+    //Card(in rank : RANK = ACE, in suit : RANK = SPADES, in isUp : bool = true)
+    Card(RANK r = ACE, SUIT s = SPADES, bool isUp = true);
 
     // Getters
-    std::string getSuit() const;
-    std::string getRank() const;
     int getValue() const;
 
-    // Static helper to create a full deck of 52 cards
-    static std::vector<Card> createDeck();
+    // flips card orientation
+    void flip();
+
+    // Friend operator<< for printing
+    friend std::ostream& operator<<(std::ostream& os, const Card& aCard);
 
 private:
-    Suit suit;
-    Rank rank;
+    SUIT suit;
+    RANK rank;
+    bool isFaceUp;
 };
 
 #endif

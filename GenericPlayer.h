@@ -23,7 +23,7 @@ class GenericPlayer : public Hand {
     // return player name
     std::string getName() const;
 
-    // get player name
+    // set player name
     void setName(const std::string& newName);
 
     protected:

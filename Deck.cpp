@@ -4,47 +4,50 @@
 #include "Card.h"
 #include <algorithm>
 #include <random>
-#include <ctime>
 #include <iostream>
 
 Deck::Deck() {
+    cardVector.reserve(52);
     populate();
 }
 
 void Deck::populate() {
-    clear(); // clear inherited Hand::cards
+    clearHand(); // clear inherited Hand::cards
 
-    // Use the static helper to create all 52 cards
-    std::vector<Card> freshDeck = Card::createDeck();
-
-    // Add all cards to the deck's Hand vector
-    for (const Card& c : freshDeck) {
-        cards.push_back(c);
+    // Create a full deck: loop through suits and ranks
+    for (int s = Card::CLUBS; s <= Card::SPADES; ++s) {
+        for (int r = Card::ACE; r <= Card::KING; ++r) {
+            // call function add(new Card(static_cast<Card::RANK>(r), static_cast<Card::SUIT>(s)))
+            add(new Card(static_cast<Card::RANK>(r),
+                          static_cast<Card::SUIT>(s)));
+        }
     }
 }
 
 void Deck::shuffle() {
-    // Use a modern shuffle
-    static std::mt19937 rng(static_cast<unsigned>(std::time(nullptr)));
-    std::shuffle(cards.begin(), cards.end(), rng);
+    static std::mt19937 rng{ std::random_device{}() };
+    std::shuffle(cardVector.begin(), cardVector.end(), rng);
 }
 
-void Deck::deal(GenericPlayer& aGenericPlayer) {
-    if (!cards.empty()) {
-        // Give top card to player
-        aGenericPlayer.add(cards.back());
-        cards.pop_back();
-    } else {
-        std::cout << "Out of cards! Unable to deal." << std::endl;
+void Deck::deal(Hand& aHand) {
+    // Deal one card if the deck is not empty
+    if (!cardVector.empty()) {
+        aHand.add(cardVector.back());   // give the last card
+        cardVector.pop_back();          // remove it from the deck
+    }
+    else {
+        std::cout << "Out of cards! Unable to deal.\n";
     }
 }
 
 void Deck::additionalCards(GenericPlayer& aGenericPlayer) {
-    // Deal cards while the player wants to hit AND is not busted
+    // Keep dealing cards while the player wants to hit and hasn't busted
     while (!aGenericPlayer.isBusted() && aGenericPlayer.isHitting()) {
-        deal(aGenericPlayer);
+        deal(aGenericPlayer);  // deal a card to the player
+
         std::cout << aGenericPlayer << std::endl;
 
+        // If the player goes over 21, they bust
         if (aGenericPlayer.isBusted()) {
             aGenericPlayer.bust();
         }

@@ -1,11 +1,10 @@
 // keeps track of the player involved and runs the BlackJack game + MAIN? 
-
 #include "Game.h"
 #include <iostream>
 
-Game::Game(const std::string& playerName)
-    : deck(), house(), player(playerName)
-{
+Game::Game(const std::string& playerName) : deck(), house(), player(playerName) {
+    // create full deck
+    deck.populate();
     // Shuffle once at the start
     deck.shuffle();
 }
@@ -14,58 +13,58 @@ Game::~Game() {}
 
 void Game::play() {
     // Start a new round: clear previous hands
-    player.clear();
-    house.clear();
+    player.clearHand();
+    house.clearHand();
 
-    // If the deck is running low, repopulate and reshuffle
-    if (deck.getCards().size() < 10) {
-        deck.populate();
-        deck.shuffle();
-        std::cout << "New deck is populated and shuffled.\n";
+    // Deal initial 2 cards to each player
+    for (int i = 0; i < 2; ++i) {
+        deck.deal(player);
+        deck.deal(house);
     }
 
-    // Initial deal: player, house, player, house
-    deck.deal(player);
-    deck.deal(house);
-    deck.deal(player);
-    deck.deal(house);
+    // Using the house object call function flipFirstCard()
+    house.flipFirstCard();
 
-    std::cout << "\n--- New Round ---\n";
+    // Show initial hands
     std::cout << player << std::endl;
     std::cout << house << std::endl;
 
-    // Player's turn
+    // Give additional cards to player
     deck.additionalCards(player);
 
-    // If player busts, house automatically wins
-    if (player.isBusted()) {
-        player.lose();
-    } else {
-        // House's turn
+    // Flip house's first card face up again
+    house.flipFirstCard();
+
+    // Display house object using cout
+    std::cout << house << std::endl;
+
+    // If player is not busted, dealer takes cards
+    if (!player.isBusted()) {
         deck.additionalCards(house);
+    }
 
-        if (house.isBusted()) {
+    // Determine results
+    if (house.isBusted()) {
+        if (!player.isBusted()) player.win();
+    }
+    else if (player.isBusted()) {
+        player.lose();
+    }
+    else {
+        int playerTotal = player.getTotal();
+        int houseTotal = house.getTotal();
+
+        if (playerTotal > houseTotal) {
             player.win();
+        } else if (playerTotal < houseTotal) {
+            player.lose();
         } else {
-            int playerTotal = player.getTotal();
-            int houseTotal  = house.getTotal();
-
-            std::cout << "\nFinal totals: "
-                      << player.getName() << " = " << playerTotal
-                      << ", House = " << houseTotal << "\n";
-
-            if (playerTotal > houseTotal) {
-                player.win();
-            } else if (playerTotal < houseTotal) {
-                player.lose();
-            } else {
-                player.push();
-            }
+            player.push();
         }
     }
 
-    std::cout << "\nFinal hands:\n";
-    std::cout << player << std::endl;
-    std::cout << house << std::endl;
-    std::cout << "-----------------\n";
+    // call the clearHand function for player object
+    player.clearHand();
+    // call the clearHand() funtion for house object
+    house.clearHand();
 }

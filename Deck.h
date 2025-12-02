@@ -3,11 +3,10 @@
 
 #include "Hand.h"
 #include "GenericPlayer.h"
-#include <vector>
-
 class Deck : public Hand {
 public:
     Deck();
+    virtual ~Deck() {}
 
     // Create a full 52-card deck
     void populate();
@@ -16,7 +15,7 @@ public:
     void shuffle();
 
     // Deal one card to a player or house
-    void deal(GenericPlayer& aGenericPlayer);
+    void deal(Hand& aHand);
 
     // Give additional cards while player wants more
     void additionalCards(GenericPlayer& aGenericPlayer);
