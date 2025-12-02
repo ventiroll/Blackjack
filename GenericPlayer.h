@@ -1,3 +1,13 @@
+// -------------------------------------------------------------
+// File: GenericPlayer.h
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Declares the abstract GenericPlayer class, which inherits
+//  from Hand and provides shared behavior for Player and House.
+// -------------------------------------------------------------
 #ifndef GENERICPLAYER_H
 #define GENERICPLAYER_H
 

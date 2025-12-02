@@ -1,4 +1,13 @@
-// inherit the class GenericPlayer and displays the status (Hitting, win, lose etc) of each player
+// -------------------------------------------------------------
+// File: Player.cpp
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Implements the Player class, including prompting the user
+//  for hits and printing win/lose/push results.
+// -------------------------------------------------------------
 #include "Player.h"
 #include <iostream>
 

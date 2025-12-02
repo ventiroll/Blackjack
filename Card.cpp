@@ -1,3 +1,13 @@
+// -------------------------------------------------------------
+// File: Card.cpp
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Implements the Card class, including card value logic,
+//  flipping behavior, and the overloaded output operator.
+// -------------------------------------------------------------
 #include "Card.h"
 #include <string>
 #include <vector>

@@ -1,3 +1,13 @@
+// -------------------------------------------------------------
+// File: House.h
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Declares the House class (dealer), including automatic hit
+//  rules and the ability to flip the first card.
+// -------------------------------------------------------------
 #ifndef HOUSE_H
 #define HOUSE_H
 

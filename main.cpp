@@ -1,3 +1,13 @@
+// -------------------------------------------------------------
+// File: main.cpp
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Prompts the user for a name, creates a Game object, and 
+// continues gameplay until tthe user chooses to stop.
+// -------------------------------------------------------------
 #include "Game.h"
 #include <iostream>
 #include <string>

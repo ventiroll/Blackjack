@@ -1,3 +1,14 @@
+// -------------------------------------------------------------
+// File: Hand.h
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Declares the Hand class, which stores a collection of Card
+//  pointers and provides Blackjack-style total calculation.
+// -------------------------------------------------------------
+
 #ifndef HAND_H
 #define HAND_H
 

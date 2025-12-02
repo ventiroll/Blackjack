@@ -1,3 +1,13 @@
+// -------------------------------------------------------------
+// File: Game.h
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Declares the Game class, which manages an entire round of
+//  Blackjack between the Player and the House.
+// -------------------------------------------------------------
 #ifndef GAME_H
 #define GAME_H
 

@@ -1,5 +1,14 @@
-// inherits the Hand Class and takes care of shuffling, populating and dealing the cards
-
+// -------------------------------------------------------------
+// File: Deck.cpp
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Implements the Deck class, including creation of a standard
+//  52-card deck, shuffling, dealing cards, and providing extra
+//  cards to players during the game.
+// -------------------------------------------------------------
 #include "Deck.h"
 #include "Card.h"
 #include <algorithm>

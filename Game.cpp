@@ -1,4 +1,14 @@
-// keeps track of the player involved and runs the BlackJack game + MAIN? 
+// -------------------------------------------------------------
+// File: Game.cpp
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Implements the Game class, including dealing initial cards,
+//  running the player and dealer turns, determining results,
+//  and clearing hands at the end of each round.
+// -------------------------------------------------------------
 #include "Game.h"
 #include <iostream>
 

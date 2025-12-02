@@ -1,3 +1,14 @@
+// -------------------------------------------------------------
+// File: Deck.h
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Declares the Deck class, which inherits Hand and is used to
+//  populate, shuffle, deal cards, and provide additional cards
+//  to GenericPlayer objects.
+// -------------------------------------------------------------
 #ifndef DECK_H
 #define DECK_H
 

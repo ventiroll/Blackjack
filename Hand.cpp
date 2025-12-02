@@ -1,4 +1,13 @@
-// adds or clears the cards to the hand and also calculates the total value of the hand
+// -------------------------------------------------------------
+// File: Hand.cpp
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Implements the Hand class, including adding cards, clearing
+//  cards, and computing the total value of the hand.
+// -------------------------------------------------------------
 #include "Hand.h"
 
 Hand::Hand() {

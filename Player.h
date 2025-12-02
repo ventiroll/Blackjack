@@ -1,3 +1,13 @@
+// -------------------------------------------------------------
+// File: Player.h
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Declares the Player class, representing the human player
+//  and implementing interactive hit decisions and result messages.
+// -------------------------------------------------------------
 #ifndef PLAYER_H
 #define PLAYER_H
 

@@ -1,3 +1,13 @@
+// -------------------------------------------------------------
+// File: GenericPlayer.cpp
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Implements the GenericPlayer class, including name handling,
+//  bust detection, and shared output formatting.
+// -------------------------------------------------------------
 #include "GenericPlayer.h"
 #include "Card.h"
 #include <iostream>

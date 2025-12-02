@@ -1,3 +1,14 @@
+// -------------------------------------------------------------
+// File: Card.h
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Declares the Card class, representing a single playing card 
+//  with rank, suit, and face-up/face-down status.
+// -------------------------------------------------------------
+
 #ifndef CARD_H
 #define CARD_H
 

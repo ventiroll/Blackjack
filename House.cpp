@@ -1,4 +1,13 @@
-// inherit the class GenericPlayer and displays the status (Hitting, win, lose etc) of the house 
+// -------------------------------------------------------------
+// File: House.cpp
+// Project: Blackjack
+// Authors: Julie Tong, Mandy Liu
+// Date: December 1, 2025
+//
+// Description:
+//  Implements the House class, including dealer behavior for
+//  hitting on totals of 16 or less and flipping the first card.
+// -------------------------------------------------------------
 #include "House.h"
 #include <iostream>
 
